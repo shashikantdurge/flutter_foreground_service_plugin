@@ -23,8 +23,8 @@ public class FlutterForegroundService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (intent.getAction() == null) {
-            return START_STICKY;
+        if (intent == null || intent.getAction() == null) {
+            return START_NOT_STICKY;
         }
 
         final String action = intent.getAction();
@@ -83,7 +83,7 @@ public class FlutterForegroundService extends Service {
                 break;
         }
 
-        return START_STICKY;
+        return START_NOT_STICKY;
     }
 
     @Override
